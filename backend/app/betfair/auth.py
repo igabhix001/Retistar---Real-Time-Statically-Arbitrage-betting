@@ -1,9 +1,9 @@
 import os
-from datetime import datetime, timedelta  # noqa: F401
+from datetime import datetime, timedelta
 import requests
 from dotenv import load_dotenv
 from fastapi import HTTPException
-from app.utils.logger import logger  # noqa: F401
+from app.utils.logger import logger
 
 # Load .env variables
 load_dotenv()
@@ -16,7 +16,13 @@ class BetfairAuthManager:
     @classmethod
     def login(cls):
         """Perform non-interactive login to Betfair."""
-        required_env_vars = ["BETFAIR_CERT_PATH", "BETFAIR_KEY_PATH", "BETFAIR_API_KEY", "BETFAIR_USERNAME", "BETFAIR_PASSWORD"]
+        required_env_vars = [
+            "BETFAIR_CERT_PATH", 
+            "BETFAIR_KEY_PATH", 
+            "BETFAIR_API_KEY", 
+            "BETFAIR_USERNAME", 
+            "BETFAIR_PASSWORD"
+        ]
         missing_vars = [var for var in required_env_vars if not os.getenv(var)]
         if missing_vars:
             raise HTTPException(
@@ -30,8 +36,8 @@ class BetfairAuthManager:
         username = os.getenv("BETFAIR_USERNAME")
         password = os.getenv("BETFAIR_PASSWORD")
 
-       
-        resp = requests.post(
+        try:
+            response = requests.post(
                 "https://identitysso-cert.betfair.com.au/api/certlogin",
                 cert=(cert_path, key_path),
                 headers={
@@ -43,9 +49,30 @@ class BetfairAuthManager:
                     "password": password,
                 },
             )
-        if resp.status_code == 200:
-                resp_json = resp.json()
-                print("Login Status:", resp_json['loginStatus'])
-                print("Session Token:", resp_json['sessionToken'])
-        else:
-                print("Request failed.")
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("loginStatus") == "SUCCESS":
+                cls.session_token = data.get("sessionToken")
+                cls.token_expiration = datetime.now() + timedelta(hours=24)  # Adjust based on actual token lifetime
+                logger.info("Betfair login successful.")
+            else:
+                logger.error(f"Betfair login failed: {data.get('error')}")
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"Betfair login failed: {data.get('error')}"
+                )
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Betfair login error: {e}")
+            raise HTTPException(status_code=500, detail="Betfair login failed.")
+
+    @classmethod
+    def get_token(cls):
+        """Get the current session token or log in if expired."""
+        if cls.session_token and cls.token_expiration and cls.token_expiration > datetime.now():
+            # Token is valid
+            return cls.session_token
+        
+        # Perform login to get a new token
+        cls.login()
+        return cls.session_token

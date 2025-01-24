@@ -1,6 +1,4 @@
 from pydantic import BaseModel, EmailStr
-from ..init_database import db
-
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os

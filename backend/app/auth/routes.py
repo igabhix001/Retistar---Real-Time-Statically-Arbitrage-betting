@@ -9,7 +9,6 @@ import jwt
 from app.logger import logger
 from app.betfair.auth import BetfairAuthManager
 from app.config import config
-from app.init_database import db
 SECRET_KEY = config.SECRET_KEY
 
 auth_router = APIRouter()
