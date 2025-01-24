@@ -3,6 +3,15 @@ from jose import JWTError, jwt
 import random
 import datetime
 from typing import Optional
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = "HS256"
+
+
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -13,9 +22,6 @@ def hash_password(password: str) -> str:
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return pwd_context.verify(plain_password, hashed_password)
 
-# JWT Tokens
-SECRET_KEY = "Abhi"
-ALGORITHM = "HS256"
 
 def create_access_token(data: dict, expires_delta: Optional[datetime.timedelta] = None):
     to_encode = data.copy()

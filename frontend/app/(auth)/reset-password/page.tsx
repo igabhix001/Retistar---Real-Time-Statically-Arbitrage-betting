@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 
 export default function ResetPasswordPage() {
     const [email, setEmail] = useState('');
-    const [otp, setOtp] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
@@ -52,10 +51,10 @@ export default function ResetPasswordPage() {
             transition={{ duration: 0.5 }}
             className="bg-white/10 backdrop-blur-md rounded-lg p-8 shadow-lg"
         >
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Reset Password</h2>
+            <h2 className="text-2xl font-bold text-black mb-6 text-center">Reset Password</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                    <label htmlFor="email" className="text-purple-200 block mb-2">
+                    <label htmlFor="email" className="text-black block mb-2">
                         Email
                     </label>
                     <Input
@@ -64,13 +63,13 @@ export default function ResetPasswordPage() {
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="bg-white/5 border-purple-300/20 text-white placeholder-purple-300/50 focus:border-purple-400 w-full"
+                        className="bg-white border border-gray-300 text-black placeholder-gray-500 focus:border-black w-full"
                         required
                     />
                 </div>
-                
+
                 <div>
-                    <label htmlFor="new-password" className="text-purple-200 block mb-2">
+                    <label htmlFor="new-password" className="text-black block mb-2">
                         New Password
                     </label>
                     <Input
@@ -79,14 +78,14 @@ export default function ResetPasswordPage() {
                         placeholder="Enter your new password"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
-                        className="bg-white/5 border-purple-300/20 text-white placeholder-purple-300/50 focus:border-purple-400 w-full"
+                        className="bg-white border border-gray-300 text-black placeholder-gray-500 focus:border-black w-full"
                         required
                     />
                 </div>
 
                 <Button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300"
+                    className="w-full bg-black text-white rounded hover:bg-gray-900 transition-colors duration-300"
                     disabled={isLoading || !email || !newPassword}
                 >
                     {isLoading ? 'Resetting Password...' : 'Reset Password'}

@@ -1,19 +1,27 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  // Check if user is authenticated (you would typically check for a valid session token)
-  const isAuthenticated = request.cookies.has('auth_token')
+export async function middleware(request: NextRequest) {
+  const token = request.cookies.get("token")?.value || null;
 
-  // If trying to access dashboard without auth, redirect to login
-  if (request.nextUrl.pathname.startsWith('/dashboard') && !isAuthenticated) {
-    return NextResponse.redirect(new URL('/login', request.url))
+  if (request.nextUrl.pathname.startsWith("/dashboard") && !token) {
+    // Redirect to login if no token
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  return NextResponse.next()
-}
+  try {
+    // Call the backend to validate the session
+    const response = await fetch("http://localhost:8000/auth/check-session", {
+      headers: { cookie: request.headers.get("cookie") || "" },
+    });
 
-export const config = {
-  matcher: '/dashboard/:path*',
-}
+    if (!response.ok) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  } catch (error) {
+    console.error("Middleware session validation error:", error);
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
 
+  return NextResponse.next();
+}

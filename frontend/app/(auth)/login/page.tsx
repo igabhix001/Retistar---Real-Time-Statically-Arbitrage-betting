@@ -7,7 +7,6 @@ import * as z from "zod";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -38,21 +37,7 @@ export default function LoginPage() {
     },
   });
 
-  interface LoginFormValues {
-    email: string;
-    password: string;
-  }
-
-  interface LoginResponse {
-    message: string;
-    otp?: string; // Included for debugging purposes
-  }
-
-  interface LoginError {
-    detail?: string;
-  }
-
-  async function onSubmit(values: LoginFormValues) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
       const response = await fetch("http://localhost:8000/auth/login", {
@@ -64,18 +49,18 @@ export default function LoginPage() {
       });
 
       if (response.ok) {
-        const data: LoginResponse = await response.json();
+        const data = await response.json();
         console.log("Login successful:", data);
 
-        // Store email in localStorage for the verification step
+        // Store email in localStorage for verification purposes
         localStorage.setItem("email", values.email);
 
-        // Redirect to the verification page
+        // Redirect to the dashboard or verification page
         router.push("/verify");
       } else {
-        const error: LoginError = await response.json();
+        const error = await response.json();
         console.error("Login failed:", error);
-        alert(error.detail || "Login failed");
+        alert(error.detail || "Login failed.");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -90,9 +75,9 @@ export default function LoginPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white/10 backdrop-blur-md rounded-lg p-8 shadow-lg"
+      className="bg-white rounded-lg p-8 shadow-lg"
     >
-      <h2 className="text-2xl font-bold text-white mb-6 text-center">
+      <h2 className="text-2xl font-bold text-black mb-6 text-center">
         Welcome Back
       </h2>
       <Form {...form}>
@@ -102,16 +87,16 @@ export default function LoginPage() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-purple-200">Email</FormLabel>
+                <FormLabel className="text-black">Email</FormLabel>
                 <FormControl>
                   <Input
                     type="email"
                     placeholder="name@example.com"
                     {...field}
-                    className="bg-white/5 border-purple-300/20 text-white placeholder-purple-300/50 focus:border-purple-400"
+                    className="bg-white border border-gray-300 text-black placeholder-gray-500 focus:border-black"
                   />
                 </FormControl>
-                <FormMessage className="text-red-300" />
+                <FormMessage className="text-red-500" />
               </FormItem>
             )}
           />
@@ -121,20 +106,20 @@ export default function LoginPage() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-purple-200">Password</FormLabel>
+                <FormLabel className="text-black">Password</FormLabel>
                 <FormControl>
                   <div className="relative">
                     <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       {...field}
-                      className="bg-white/5 border-purple-300/20 text-white placeholder-purple-300/50 focus:border-purple-400 pr-10"
+                      className="bg-white border border-gray-300 text-black placeholder-gray-500 focus:border-black pr-10"
                     />
                     <Button
                       type="button"
                       variant="ghost"
                       size="icon"
-                      className="absolute right-0 top-0 h-full px-3 text-purple-300 hover:text-white"
+                      className="absolute right-0 top-0 h-full px-3 text-gray-600 hover:text-black"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
@@ -145,14 +130,14 @@ export default function LoginPage() {
                     </Button>
                   </div>
                 </FormControl>
-                <FormMessage className="text-red-300" />
+                <FormMessage className="text-red-500" />
               </FormItem>
             )}
           />
 
           <Button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300"
+            className="w-full bg-black text-white rounded hover:bg-gray-900 transition-colors duration-300"
             disabled={isLoading}
           >
             {isLoading ? "Signing in..." : "Sign In"}
@@ -163,17 +148,17 @@ export default function LoginPage() {
       <div className="mt-6 text-center text-sm">
         <Link
           href="/forgot-password"
-          className="text-purple-300 hover:text-white transition-colors duration-300"
+          className="text-gray-600 hover:text-black transition-colors duration-300"
         >
           Forgot password?
         </Link>
       </div>
 
       <div className="mt-4 text-center text-sm">
-        <span className="text-purple-200">Don't have an account? </span>
+        <span className="text-gray-600">Don't have an account? </span>
         <Link
           href="/signup"
-          className="text-purple-300 hover:text-white transition-colors duration-300"
+          className="text-gray-600 hover:text-black transition-colors duration-300"
         >
           Sign up
         </Link>

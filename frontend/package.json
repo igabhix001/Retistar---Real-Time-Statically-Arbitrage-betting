@@ -20,6 +20,7 @@
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-dropdown-menu": "^2.1.4",
     "@radix-ui/react-hover-card": "^1.1.4",
+    "@radix-ui/react-icons": "latest",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-menubar": "^1.1.4",
     "@radix-ui/react-navigation-menu": "^1.2.3",
@@ -43,7 +44,9 @@
     "cmdk": "1.0.4",
     "date-fns": "latest",
     "embla-carousel-react": "8.5.1",
+    "framer-motion": "latest",
     "input-otp": "1.4.1",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.454.0",
     "next": "14.2.16",
     "next-themes": "^0.4.4",
@@ -57,11 +60,10 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.6",
-    "zod": "latest",
-    "@radix-ui/react-icons": "latest",
-    "framer-motion": "latest"
+    "zod": "latest"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",

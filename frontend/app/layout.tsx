@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Nav } from '@/components/nav'
-import { Footer } from '@/components/footer'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -14,18 +12,15 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gradient-to-br from-zinc-900 via-zinc-900 to-purple-900 min-h-screen flex flex-col`}>
+      <body className={`${inter.className} bg-white text-black min-h-screen flex flex-col`}>
         <Nav />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <main className="flex-grow">{children}</main>
       </body>
     </html>
-  )
+  );
 }
 

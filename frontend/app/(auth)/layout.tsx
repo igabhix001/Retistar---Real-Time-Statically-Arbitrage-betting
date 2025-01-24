@@ -8,7 +8,7 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-zinc-900 via-purple-900 to-black flex items-center justify-center p-4">
+    <div className="min-h-screen w-full bg-white text-black flex items-center justify-center p-4">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

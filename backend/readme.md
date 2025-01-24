@@ -6,7 +6,7 @@ pip install -r requirements.txt
 if pip not work try this command
 
 #
-pip install -r requirements.txt --breaks-system-packages
+pip install -r requirements.txt --break-system-packages
 
 
 #

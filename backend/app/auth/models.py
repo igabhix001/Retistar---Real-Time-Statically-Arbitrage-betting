@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 from pymongo import MongoClient
-from app.db import db
+from app.init_database import db
 
 # Pydantic schemas
 class User(BaseModel):

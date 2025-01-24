@@ -1,0 +1,21 @@
+2025-01-23 15:38:53,656 - INFO - Successfully logged in to Betfair.
+2025-01-23 15:39:13,741 - INFO - Successfully logged in to Betfair.
+2025-01-23 15:50:40,880 - INFO - Successfully logged in to Betfair.
+2025-01-23 15:51:08,183 - INFO - Successfully logged in to Betfair.
+2025-01-23 15:52:06,863 - INFO - Successfully logged in to Betfair.
+2025-01-23 15:53:02,834 - INFO - Successfully logged in to Betfair.
+2025-01-23 15:53:02,835 - INFO - {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-01-23 16:19:45,158 - INFO - {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-01-23 16:24:43,001 - ERROR - Betfair login failed: No session token received.
+2025-01-23 16:43:33,601 - ERROR - Betfair login failed: No session token received.
+2025-01-23 16:43:55,101 - INFO - {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-01-23 17:28:28,453 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com', port=443): Max retries exceeded with url: /api/certlogin (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))
+2025-01-23 17:30:45,197 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com', port=443): Max retries exceeded with url: /api/certlogin (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))
+2025-01-23 19:55:41,381 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com', port=443): Max retries exceeded with url: /api/certlogin (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f376c285fa0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-01-23 20:01:04,501 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com', port=443): Max retries exceeded with url: /api/certlogin (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fcae535d490>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-01-23 20:12:59,471 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Max retries exceeded with url: /api/certlogin (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f5dc82e50d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-01-23 20:15:31,461 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Max retries exceeded with url: /api/certlogin (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f33a93846b0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-01-24 07:51:24,295 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Max retries exceeded with url: /api/certlogin (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f10184cbb60>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-01-24 12:54:12,723 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Max retries exceeded with url: /api/certlogin (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))
+2025-01-24 13:49:52,941 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Max retries exceeded with url: /api/certlogin (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))
+2025-01-24 14:18:25,978 - ERROR - Betfair login failed: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Max retries exceeded with url: /api/certlogin (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))
