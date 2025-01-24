@@ -45,7 +45,7 @@ class BetfairAuthManager:
             )
         if resp.status_code == 200:
                 resp_json = resp.json()
-                print(resp_json['loginStatus'])
-                print(resp_json['sessionToken'])
+                print("Login Status:", resp_json['loginStatus'])
+                print("Session Token:", resp_json['sessionToken'])
         else:
                 print("Request failed.")

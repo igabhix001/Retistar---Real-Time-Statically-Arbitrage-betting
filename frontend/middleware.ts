@@ -9,19 +9,5 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  try {
-    // Call the backend to validate the session
-    const response = await fetch("http://localhost:8000/auth/check-session", {
-      headers: { cookie: request.headers.get("cookie") || "" },
-    });
-
-    if (!response.ok) {
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-  } catch (error) {
-    console.error("Middleware session validation error:", error);
-    return NextResponse.redirect(new URL("/login", request.url));
-  }
-
   return NextResponse.next();
 }
