@@ -10,8 +10,8 @@ from app.utils.logger import logger
 load_dotenv()
 
 # Globals for rate limit tracking
-RATE_LIMIT_REMAINING = None
-RATE_LIMIT_RESET = None
+#RATE_LIMIT_REMAINING = None
+#RATE_LIMIT_RESET = None
 
 class BetfairAuthManager:
     """Handles Betfair login and session management."""
@@ -41,7 +41,7 @@ class BetfairAuthManager:
         username = os.getenv("BETFAIR_USERNAME")
         password = os.getenv("BETFAIR_PASSWORD")
 
-        retries = 3
+        retries = 1
         for attempt in range(retries):
             try:
                 response = requests.post(

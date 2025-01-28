@@ -34,12 +34,12 @@ async def protected_route():
         logger.error(f"Protected route error: {e}")
         raise HTTPException(status_code=500, detail="Internal server error.")
 
-@app.get("/rate-limit-status")
-async def rate_limit_status():
-    return {
-        "remaining": RATE_LIMIT_REMAINING,
-        "reset_time": RATE_LIMIT_RESET,
-    }
+ #@app.get("/rate-limit-status")
+#async def rate_limit_status():
+ #   return {
+  #      "remaining": RATE_LIMIT_REMAINING,
+   #     "reset_time": RATE_LIMIT_RESET,
+   # }
 
 # Enable CORS
 app.add_middleware(

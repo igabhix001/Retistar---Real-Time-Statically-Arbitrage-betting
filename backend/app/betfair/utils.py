@@ -3,12 +3,19 @@ from app.config import Config
 from fastapi import HTTPException
 import time
 import requests
+import os
+from dotenv import load_dotenv
+
+
+# Load environment variables from .env file
+load_dotenv()
+api_key = os.getenv("BETFAIR_API_KEY")
 
 def get_headers():
     """Generate headers for Betfair API calls."""
     return {
         "X-Authentication": BetfairAuthManager.get_token(),
-        "X-Application": Config.BETFAIR_API_KEY,
+        "X-Application": api_key,
         "Accept-Encoding": "gzip, deflate",
         "Connection": "keep-alive",
     }
