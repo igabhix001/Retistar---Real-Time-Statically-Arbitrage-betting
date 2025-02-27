@@ -1,17 +1,25 @@
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, FastAPI
+import jwt
 from .models import User, Login, OTPVerification, user_collection, otp_collection
 from .utils import hash_password, verify_password, generate_otp
 from bson.objectid import ObjectId
 from datetime import datetime, timezone, timedelta
 from pydantic import BaseModel
 from fastapi.responses import JSONResponse
-import jwt
 from app.logger import logger
 from app.betfair.auth import BetfairAuthManager
 from app.config import config
+from app.betfair.utils import execute_betting_workflow, fetch_market_data,get_all_market_data
+from typing import List
+from app.betfair.stream import BetfairStream
+
 SECRET_KEY = config.SECRET_KEY
 
 auth_router = APIRouter()
+# Use FastAPI's state management
+app = FastAPI()
+app.state.betfair_stream = None
+
 
 # Signup
 @auth_router.post("/signup")
@@ -208,3 +216,150 @@ async def logout():
     response = JSONResponse({"message": "Logout successful"})
     response.delete_cookie("token")
     return response
+
+# Protected route
+@auth_router.get("/protected-route")
+async def protected_route():
+    try:
+        token = BetfairAuthManager.get_token()
+        return {
+            "message": "Accessed protected route successfully.",
+            "session_token": token,
+        }
+    except Exception as e:
+        logger.error(f"Protected route error: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error.")
+    
+# ---------------------------------------------------
+# Betting Logic routes
+#-----------------------------------------------------
+@auth_router.post("/place-bet/")
+async def place_bet_endpoint(market_id: str, selection_id: int, side: str, size: float, price: float):
+    """Endpoint to place a bet."""
+    try:
+        logger.info(f"Received request to place bet on market ID: {market_id}")
+
+        # Example values for time_to_start and matched_amount
+        time_to_start = 179  # Replace with actual logic to calculate time to start
+        matched_amount = 7968  # Replace with actual logic to fetch matched amount
+
+        # Execute the betting workflow
+        response = execute_betting_workflow(market_id, time_to_start, matched_amount)
+
+        # Return the response
+        return {"message": "Bet placed successfully", "response": response}
+
+    except HTTPException as e:
+        logger.error(f"HTTPException: {e.detail}")
+        raise e
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+    
+#-----------------------------------------------------
+    # Fetch market specific data endpoint
+#-----------------------------------------------------
+    
+    
+@auth_router.post("/fetch-market-data/")
+async def fetch_market_data_endpoint(market_id: str):
+        """Endpoint to fetch market data."""
+        try:
+            logger.info(f"Received request to fetch market data for market ID: {market_id}")
+
+            # Fetch market data
+            market_data = fetch_market_data(market_id)
+
+            # Return the response
+            return {"message": "Market data fetched successfully", "market_data": market_data}
+
+        except HTTPException as e:
+            logger.error(f"HTTPException: {e.detail}")
+            raise e
+        except Exception as e:
+            logger.error(f"Unexpected error: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+        
+#-----------------------------------------------------  
+        # Fetch market data endpoint
+#-----------------------------------------------------
+
+@auth_router.post("/get-all-market-data/")
+async def get_all_market_data_endpoint():
+    """Endpoint to fetch market data for all markets."""
+    try:
+        logger.info("Received request to fetch market data for all markets")
+
+        # Fetch market data
+        market_data = get_all_market_data()
+
+        # Return the response
+        return {"message": "Market data fetched successfully", "market_data": market_data}
+
+    except HTTPException as e:
+        logger.error(f"HTTPException: {e.detail}")
+        raise e
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}")
+
+#-----------------------------------------------------
+ # Fetch market specific data endpoint
+#-----------------------------------------------------
+
+@auth_router.post("/fetch-market-specific-data/")
+async def fetch_market_specific_data_endpoint():
+    """Endpoint to fetch market specific data."""
+
+    market_id = 1 # Example market ID
+
+    try:
+        logger.info(f"Received request to fetch market specific data for market ID: {market_id}")    
+
+        # Fetch market specific data
+        market_data = fetch_market_data(market_id)  
+
+        # Return the response
+        return {"message": "Market specific data fetched successfully", "market_data": market_data}
+
+    except HTTPException as e:
+        logger.error(f"HTTPException: {e.detail}")
+        raise e
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")  
+     
+#-----------------------------------------------------
+# Stream routes
+#------------------------------------------------
+
+
+@auth_router.post("/stream/start")
+async def start_stream(market_ids: List[str]):
+    """Start streaming market data for specified markets."""
+    try:
+        if app.betfair_stream and app.betfair_stream.running:
+            return {"message": "Stream is already running"}
+
+        app.betfair_stream = BetfairStream()
+        app.betfair_stream.start()
+        app.betfair_stream.subscribe_to_markets(market_ids)
+        
+        return {"message": "Stream started successfully"}
+    except Exception as e:
+        logger.error(f"Error starting stream: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@auth_router.post("/stream/stop")
+async def stop_stream():
+    """Stop the market data stream."""
+    try:
+        if app.betfair_stream:
+            app.betfair_stream.stop()
+            app.betfair_stream = None
+            return {"message": "Stream stopped successfully"}
+        return {"message": "No active stream to stop"}
+    except Exception as e:
+        logger.error(f"Error stopping stream: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+

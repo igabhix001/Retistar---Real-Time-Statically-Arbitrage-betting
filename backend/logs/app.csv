@@ -1,0 +1,199 @@
+Timestamp,Log Level,Message
+2025-01-29 13:11:37,INFO,Response status code: 200
+2025-01-29 13:11:37,INFO,Response text: {"sessionToken":"/cEl24U8ywYEMaaoTwBNygkww4daoM6JZJ6HirZbuFQ=","loginStatus":"SUCCESS"}
+2025-01-29 13:11:37,INFO,Betfair login successful.
+2025-01-29 13:11:37,INFO,Session is active.
+2025-01-29 13:12:37,INFO,Session is active.
+2025-01-29 13:13:37,INFO,Session is active.
+2025-01-29 13:14:37,INFO,Session is active.
+2025-01-29 13:15:37,INFO,Session is active.
+2025-01-29 13:16:37,INFO,Session is active.
+2025-01-29 13:17:37,INFO,Session is active.
+2025-01-29 13:18:37,INFO,Session is active.
+2025-01-29 13:19:37,INFO,Session is active.
+2025-01-29 13:20:37,INFO,Session is active.
+2025-01-29 13:21:37,INFO,Session is active.
+2025-01-29 13:22:37,INFO,Session is active.
+2025-01-29 13:23:37,INFO,Session is active.
+2025-01-29 13:24:37,INFO,Session is active.
+2025-01-29 13:25:37,INFO,Session is active.
+2025-01-29 13:26:37,INFO,Session is active.
+2025-01-29 13:27:37,INFO,Session is active.
+2025-01-29 13:28:37,INFO,Session is active.
+2025-01-29 13:29:37,INFO,Session is active.
+2025-01-29 13:30:37,INFO,Session is active.
+2025-01-29 13:31:37,INFO,Session is active.
+2025-01-29 13:32:37,INFO,Session is active.
+2025-01-29 13:33:37,INFO,Session is active.
+2025-01-29 13:34:37,INFO,Session is active.
+2025-01-29 13:35:37,INFO,Session is active.
+2025-01-29 13:36:37,INFO,Session is active.
+2025-01-29 13:37:37,INFO,Session is active.
+2025-01-29 13:38:37,INFO,Session is active.
+2025-01-29 13:39:37,INFO,Session is active.
+2025-01-29 13:40:37,INFO,Session is active.
+2025-01-29 13:41:37,INFO,Session is active.
+2025-01-29 13:42:37,INFO,Session is active.
+2025-01-29 13:43:37,INFO,Session is active.
+2025-01-29 13:44:32,INFO,Response status code: 200
+2025-01-29 13:44:32,INFO,Response text: {"sessionToken":"LTDZ4icce5DwT3j71rnJnDO19DLrJxLVsm/O5nJEwzI=","loginStatus":"SUCCESS"}
+2025-01-29 13:44:32,INFO,Betfair login successful.
+2025-01-29 13:44:32,INFO,Session is active.
+2025-01-29 14:44:32,INFO,Session is active.
+2025-01-29 15:44:32,INFO,Session is active.
+2025-01-29 16:44:32,INFO,Session is active.
+2025-01-29 17:44:32,INFO,Session is active.
+2025-01-29 18:44:32,INFO,Session is active.
+2025-01-29 19:44:32,INFO,Session is active.
+2025-01-29 20:44:32,INFO,Session is active.
+2025-01-29 21:44:32,INFO,Session is active.
+2025-01-29 22:44:32,INFO,Session is active.
+2025-01-29 23:44:32,INFO,Session is active.
+2025-01-30 00:44:32,INFO,Session is active.
+2025-01-30 01:44:33,INFO,Session is active.
+2025-01-30 02:44:33,INFO,Session is active.
+2025-01-30 03:44:33,INFO,Session is active.
+2025-01-30 04:44:33,INFO,Session is active.
+2025-01-30 05:44:33,INFO,Session is active.
+2025-01-30 06:44:33,INFO,Session is active.
+2025-01-30 07:44:33,INFO,Session is active.
+2025-01-30 08:44:33,INFO,Session is active.
+2025-01-30 09:44:33,INFO,Session is active.
+2025-01-30 10:44:33,INFO,Session is active.
+2025-01-30 11:44:33,INFO,Session is active.
+2025-01-30 12:44:33,INFO,Session is active.
+2025-01-30 13:44:33,WARNING,Session expired. Attempting to reconnect...
+2025-01-30 13:44:33,INFO,Response status code: 200
+2025-01-30 13:44:33,INFO,Response text: {"sessionToken":"wFyJcj2210nBvKB91K5YlaFDh1U82HqiqH5f15txE1w=","loginStatus":"SUCCESS"}
+2025-01-30 13:44:33,INFO,Betfair login successful.
+2025-01-30 14:44:33,INFO,Session is active.
+2025-01-30 15:44:33,INFO,Session is active.
+2025-01-30 16:44:33,INFO,Session is active.
+2025-01-30 17:44:33,INFO,Session is active.
+2025-01-30 18:44:33,INFO,Session is active.
+2025-01-30 19:44:33,INFO,Session is active.
+2025-01-30 20:44:33,INFO,Session is active.
+2025-01-30 21:44:33,INFO,Session is active.
+2025-01-30 22:44:33,INFO,Session is active.
+2025-01-30 23:44:33,INFO,Session is active.
+2025-01-31 00:44:33,INFO,Session is active.
+2025-01-31 01:44:33,INFO,Session is active.
+2025-01-31 02:44:33,INFO,Session is active.
+2025-01-31 03:44:33,INFO,Session is active.
+2025-01-31 04:44:33,INFO,Session is active.
+2025-01-31 05:44:33,INFO,Session is active.
+2025-01-31 06:44:33,INFO,Session is active.
+2025-01-31 07:44:33,INFO,Session is active.
+2025-01-31 08:44:33,INFO,Session is active.
+2025-01-31 09:44:33,INFO,Session is active.
+2025-01-31 10:44:33,INFO,Session is active.
+2025-01-31 11:44:33,INFO,Session is active.
+2025-01-31 12:44:33,INFO,Session is active.
+2025-01-31 13:44:33,WARNING,Session expired. Attempting to reconnect...
+2025-01-31 13:44:33,INFO,Response status code: 200
+2025-01-31 13:44:33,INFO,Response text: {"sessionToken":"oVaedchYARplV9NLa/T0vWSdzQUs7oGkVB85L/LE3L8=","loginStatus":"SUCCESS"}
+2025-01-31 13:44:33,INFO,Betfair login successful.
+2025-01-31 14:44:33,INFO,Session is active.
+2025-01-31 15:44:33,INFO,Session is active.
+2025-01-31 16:44:33,INFO,Session is active.
+2025-01-31 17:44:33,INFO,Session is active.
+2025-01-31 18:44:33,INFO,Session is active.
+2025-01-31 19:44:33,INFO,Session is active.
+2025-01-31 20:44:33,INFO,Session is active.
+2025-01-31 21:44:34,INFO,Session is active.
+2025-01-31 22:44:34,INFO,Session is active.
+2025-01-31 23:44:34,INFO,Session is active.
+2025-02-01 00:44:34,INFO,Session is active.
+2025-02-01 01:44:34,INFO,Session is active.
+2025-02-01 15:35:39,INFO,Response status code: 200
+2025-02-01 15:35:39,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-01 15:35:39,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-01 15:35:39,INFO,Retrying login in 2.38 seconds...
+2025-02-01 15:35:42,INFO,Response status code: 200
+2025-02-01 15:35:42,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-01 15:35:42,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-01 15:35:42,INFO,Retrying login in 4.01 seconds...
+2025-02-01 15:35:47,INFO,Response status code: 200
+2025-02-01 15:35:47,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-01 15:35:47,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-01 15:35:47,INFO,Retrying login in 8.75 seconds...
+2025-02-01 15:36:01,INFO,Response status code: 200
+2025-02-01 15:36:01,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-01 15:36:01,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-01 15:36:01,INFO,Retrying login in 16.30 seconds...
+2025-02-01 15:36:17,INFO,Response status code: 200
+2025-02-01 15:36:17,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-01 15:36:17,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-01 15:36:17,INFO,Retrying login in 32.85 seconds...
+2025-02-01 15:36:49,INFO,Response status code: 200
+2025-02-01 15:36:49,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-01 15:36:49,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-01 15:36:49,INFO,Retrying login in 64.30 seconds...
+2025-02-01 15:39:16,ERROR,Betfair login error on attempt 1: HTTPSConnectionPool(host='identitysso-cert.betfair.com.au', port=443): Read timed out. (read timeout=10)
+2025-02-01 15:39:16,INFO,Retrying login in 2.79 seconds...
+2025-02-01 11:51:20,INFO,Response status code: 200
+2025-02-01 11:51:20,INFO,Response text: {"sessionToken":"ExQr3LOj3GEbZJYeTpwakgc3rTygH1S8iz0nqIPGdXo=","loginStatus":"SUCCESS"}
+2025-02-01 11:51:20,INFO,Betfair login successful.
+2025-02-01 11:51:20,INFO,Session is active.
+2025-02-01 12:02:28,INFO,Response status code: 200
+2025-02-01 12:02:28,INFO,Response text: {"sessionToken":"ypAXeorgXcnIL01wFDQ7ywzNTNiI8QgiwwdFpvGGgAQ=","loginStatus":"SUCCESS"}
+2025-02-01 12:02:28,INFO,Betfair login successful.
+2025-02-01 12:02:28,INFO,Session is active.
+2025-02-01 12:09:13,INFO,Response status code: 200
+2025-02-01 12:09:13,INFO,Response text: {"sessionToken":"Z6IXV58cVUSAfa4RR4OYV+m8g95Nsb3gABy+DjPJsZE=","loginStatus":"SUCCESS"}
+2025-02-01 12:09:13,INFO,Betfair login successful.
+2025-02-01 12:09:13,INFO,Session is active.
+2025-02-01 12:19:48,INFO,Response status code: 200
+2025-02-01 12:19:48,INFO,Response text: {"sessionToken":"hYwb3dIGd9y/0gbZ+vT7Oig48sJ0PScEW7dSNt4TP8c=","loginStatus":"SUCCESS"}
+2025-02-01 12:19:48,INFO,Betfair login successful.
+2025-02-01 12:19:48,INFO,Session is active.
+2025-02-01 12:32:47,INFO,Response status code: 200
+2025-02-01 12:32:47,INFO,Response text: {"sessionToken":"iGRgDQKb6tGpPAOcsRKKTJJyThlexMk/4mWhtcUT/Qo=","loginStatus":"SUCCESS"}
+2025-02-01 12:32:47,INFO,Betfair login successful.
+2025-02-01 12:32:47,INFO,Session is active.
+2025-02-01 12:35:53,INFO,Response status code: 200
+2025-02-01 12:35:53,INFO,Response text: {"sessionToken":"FWUvFfQjRXBsP8quhi4yNVomw68fXjRUc9NUTkUgQJY=","loginStatus":"SUCCESS"}
+2025-02-01 12:35:53,INFO,Betfair login successful.
+2025-02-01 12:35:53,INFO,Session is active.
+2025-02-01 12:37:33,INFO,Response status code: 200
+2025-02-01 12:37:33,INFO,Response text: {"sessionToken":"oxiLMF3hEgSc3M67C9WaBR0AxJRHSfGoUbsjZ/eW5GQ=","loginStatus":"SUCCESS"}
+2025-02-01 12:37:33,INFO,Betfair login successful.
+2025-02-01 12:37:33,INFO,Session is active.
+2025-02-01 13:37:33,INFO,Session is active.
+2025-02-01 14:37:33,INFO,Session is active.
+2025-02-01 15:37:33,INFO,Session is active.
+2025-02-01 16:37:33,INFO,Session is active.
+2025-02-01 17:37:33,INFO,Session is active.
+2025-02-01 18:37:33,INFO,Session is active.
+2025-02-01 19:37:33,INFO,Session is active.
+2025-02-01 20:37:33,INFO,Session is active.
+2025-02-01 21:37:33,INFO,Session is active.
+2025-02-01 22:37:33,INFO,Session is active.
+2025-02-01 23:37:33,INFO,Session is active.
+2025-02-02 00:37:33,INFO,Session is active.
+2025-02-02 01:37:33,INFO,Session is active.
+2025-02-06 10:58:53,INFO,Session expired or not available. Logging in again...
+2025-02-06 10:58:55,INFO,Response status code: 200
+2025-02-06 10:58:55,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-06 10:58:55,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-06 10:58:55,INFO,Retrying login in 2.06 seconds...
+2025-02-06 10:58:57,INFO,Session expired or not available. Logging in again...
+2025-02-06 10:58:59,INFO,Response status code: 200
+2025-02-06 10:58:59,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-06 10:58:59,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-06 10:58:59,INFO,Retrying login in 2.19 seconds...
+2025-02-06 10:59:01,INFO,Session expired or not available. Logging in again...
+2025-02-06 10:59:02,INFO,Response status code: 200
+2025-02-06 10:59:02,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-06 10:59:02,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-06 10:59:02,INFO,Retrying login in 2.95 seconds...
+2025-02-06 10:59:37,INFO,Session expired or not available. Logging in again...
+2025-02-06 10:59:38,INFO,Response status code: 200
+2025-02-06 10:59:38,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-06 10:59:38,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-06 10:59:38,INFO,Retrying login in 2.07 seconds...
+2025-02-06 10:59:41,INFO,Session expired or not available. Logging in again...
+2025-02-06 10:59:42,INFO,Response status code: 200
+2025-02-06 10:59:42,INFO,Response text: {"loginStatus":"BETTING_RESTRICTED_LOCATION"}
+2025-02-06 10:59:42,ERROR,Betfair login failed: {'loginStatus': 'BETTING_RESTRICTED_LOCATION'}
+2025-02-06 10:59:42,INFO,Retrying login in 2.36 seconds...
