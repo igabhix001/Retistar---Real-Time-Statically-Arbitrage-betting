@@ -189,7 +189,7 @@ async def browse_markets():
     print_header("Market Browser")
     
     # Fetch event types (sports)
-    event_types_response = list_event_types()
+    event_types_response = await list_event_types()
     if not event_types_response or "result" not in event_types_response:
         print("Failed to fetch event types.")
         return None
@@ -202,7 +202,7 @@ async def browse_markets():
     )
     
     # Fetch events for the selected sport
-    events_response = list_events(selected_event_type["eventType"]["id"])
+    events_response = await list_events(selected_event_type["eventType"]["id"])
     if not events_response or "result" not in events_response or not events_response["result"]:
         print("No events found for this sport.")
         return None
@@ -214,7 +214,7 @@ async def browse_markets():
     )
     
     # Fetch markets for the selected event
-    markets_response = list_market_catalogue(selected_event["event"]["id"])
+    markets_response = await list_market_catalogue(selected_event["event"]["id"])
     if not markets_response or "result" not in markets_response or not markets_response["result"]:
         print("No markets found for this event.")
         return None
@@ -229,7 +229,7 @@ async def browse_markets():
     market_id = selected_market["marketId"]
     
     # Get market book to see matched amount and time to start
-    market_book = list_market_book(market_id)
+    market_book = await list_market_book(market_id)
     if not market_book or "result" not in market_book or not market_book["result"]:
         print("Failed to fetch market details.")
         return None
@@ -254,13 +254,17 @@ async def account_summary():
         # Get account funds
         funds = await get_account_funds()
         if funds:
-            print(f"Available Balance: ${funds['available']:.2f}")
+            print(f"Available Balance: ${funds.get('availableToBetBalance', 0):.2f}")
             print(f"Exposure: ${funds.get('exposure', 0):.2f}")
             print(f"Total Balance: ${funds.get('balance', 0):.2f}")
+            print(f"Retained Commission: ${funds.get('retainedCommission', 0):.2f}")
+            print(f"Exposure Limit: ${funds.get('exposureLimit', 0):.2f}")
         else:
             print("Unable to fetch account information.")
     except Exception as e:
         print(f"Error fetching account information: {str(e)}")
+        import traceback
+        traceback.print_exc()
 
 async def main_menu():
     """Display the main menu and handle user selection."""

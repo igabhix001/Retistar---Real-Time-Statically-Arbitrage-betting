@@ -61,7 +61,7 @@ async def fetch_with_retry(operation, *args, retries=3, delay=2):
     """
     for i in range(retries):
         try:
-            result = operation(*args)
+            result = await operation(*args)
             if result:
                 return result
             logger.warning(f"Operation returned no result, attempt {i+1}/{retries}")
@@ -69,13 +69,12 @@ async def fetch_with_retry(operation, *args, retries=3, delay=2):
             logger.warning(f"Retry {i+1}/{retries} failed: {str(e)}")
             if i < retries - 1:  # Don't sleep on the last iteration
                 await asyncio.sleep(delay * (2 ** i))  # Exponential backoff
-            continue
     return None
 
 # ------------------------------------------------
 #               Event Retrieval Functions
 # ------------------------------------------------
-def list_event_types():
+async def list_event_types():
     """ Fetch event type IDs (e.g., Basketball). """
     payload = {
         "jsonrpc": "2.0",
@@ -87,9 +86,9 @@ def list_event_types():
         response = requests.post(BETFAIR_API_URL, headers=get_headers(), json=payload)
         handle_api_error(response)
         return response.json()
-    return asyncio.run(fetch_with_retry(fetch_event_types))
+    return await fetch_with_retry(fetch_event_types)
 
-def list_events(event_type_id: int):
+async def list_events(event_type_id: int):
     """ Fetch events (NBA games) for a given event type ID. """
     payload = {
         "jsonrpc": "2.0",
@@ -101,7 +100,7 @@ def list_events(event_type_id: int):
         response = requests.post(BETFAIR_API_URL, headers=get_headers(), json=payload)
         handle_api_error(response)
         return response.json()
-    return asyncio.run(fetch_with_retry(fetch_events))
+    return await fetch_with_retry(fetch_events)
 
 # ------------------------------------------------
 #               Market Data Functions
@@ -189,7 +188,7 @@ async def list_market_catalogue(event_id: str, max_results: int = 10):
         response = requests.post(BETFAIR_API_URL, headers=get_headers(), json=payload)
         handle_api_error(response)
         return response.json()
-    return asyncio.run(fetch_with_retry(fetch_market_catalogue))
+    return await fetch_with_retry(fetch_market_catalogue)
 
 async def list_market_book(market_id: str):
     """ Fetch real-time odds for a given market. """
@@ -211,8 +210,20 @@ async def list_market_book(market_id: str):
 # ------------------------------------------------
 #               Bet Placement Functions
 # ------------------------------------------------
-def place_bet(market_id: str, selection_id: int, side: str, size: float, price: float):
-    """ Place a bet on Betfair. """
+async def place_bet(market_id: str, selection_id: int, side: str, size: float, price: float):
+    """
+    Place a bet on the Betfair exchange.
+    
+    Args:
+        market_id: Betfair market ID
+        selection_id: Selection ID (runner ID)
+        side: BACK or LAY
+        size: Stake amount
+        price: Odds
+        
+    Returns:
+        Dict containing the API response
+    """
     if size <= 0:
         raise HTTPException(status_code=400, detail="Stake must be greater than zero.")
     if price <= 1.01:
@@ -241,7 +252,7 @@ def place_bet(market_id: str, selection_id: int, side: str, size: float, price: 
         response = requests.post(BETFAIR_API_URL, headers=get_headers(), json=payload)
         handle_api_error(response)
         return response.json()
-    return asyncio.run(fetch_with_retry(place_bet_operation))
+    return await fetch_with_retry(place_bet_operation)
 
 # ------------------------------------------------
 #               Data Classes
@@ -402,7 +413,11 @@ async def get_account_funds():
             json=payload
         )
         handle_api_error(response)
-        return response.json().get("result", {})
+        result = response.json()
+        # Add debug logging to see the structure of the response
+        logger.info(f"Account funds response: {result}")
+        return result.get("result", {})
     
-    return await fetch_with_retry(fetch_account_funds)
+    result = await fetch_with_retry(fetch_account_funds)
+    return result
 from app.logger import logger
